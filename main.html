@@ -54,9 +54,9 @@
         <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;">Begin / End Quiz</button>
         <div class="exp">
             <div class="quiz-container">
-                <div class="question" style = "position:relative; left:0px; top:50px;">
-                  What event marked the end of World War II?
-                </div>
+                <div class="question" style="visibility: hidden; position:relative; left:0px; top:50px;">
+                    What event marked the end of World War II?
+                </div>                  
                 <div class="answer-container">
                   <div class="answer-bubble" id="answer1" style = "position:relative; left:0px; top:50px;">The Battle of Stalingrad</div>
                   <div class="answer-bubble" id="answer2" style = "position:relative; left:0px; top:50px;">The D-Day Invasion</div>
@@ -64,11 +64,11 @@
                   <div class="answer-bubble" id="answer4" style = "position:relative; left:0px; top:50px;">The Fall of the Berlin Wall</div>
                 </div>
                 
-                <button id="next-problem-button" onclick="unhide()">Next Question</button>
+                <button id="next-problem-button" onclick="unhide()"> Next Question </button>
 
                 <button id="start-answer-button" onclick="toggleAnswer()" style = "position:relative; left:0px; top:50px;">Why is this correct?</button>
-                <div class = "exp" style = "visibility" id="answer">  
-                    <p style = "position:relative; left:0px; top:50px;">What event marked the end of World War II?</p>
+                <div class = "exp" style = "visibility:hidden;" id="answer">  
+                <p style = "position:relative; left:0px; top:50px;">What event marked the end of World War II?</p>
                 </div>
                 </div>
             </div>
@@ -152,13 +152,9 @@
                   });
                 }
 
-
-
                 let currentQuestionIndex = 0;
                 const questionContainer = document.querySelector(".question");
                 const answerContainers = document.querySelectorAll(".answer-bubble");
-
-                
 
                 function displayQuestion(question) {
                     questionContainer.textContent = question.text;
@@ -169,8 +165,6 @@
 
                 displayQuestion(questionsFinal[currentQuestionIndex]);
               </script>
-        </div>
-    </div>
 
     <script src="LabelLogic.js"></script>
 

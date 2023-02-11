@@ -84,9 +84,13 @@ startQuizButton.addEventListener('click', function() {
 });
 
 function toggleAnswer() {
-    var answer = document.getElementById("answer");
-    answer.classList.toggle("hidden");
-}
+    const answerDiv = document.getElementById("answer");
+    if (answerDiv.style.display === "none") {
+      answerDiv.style.display = "block";
+    } else {
+      answerDiv.style.display = "none";
+    }
+  }
 
 function unhide() {
     var hids = document.getElementsByClassName("exp");
