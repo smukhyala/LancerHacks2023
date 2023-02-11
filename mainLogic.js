@@ -19,7 +19,8 @@ const questions = [
 
 // Function to display the questions and options
 function askQuestion(question) {
-console.log(question.question);
+var displayedQuestion = question.question;
+document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
 for (let i = 0; i < question.options.length; i++) {
     console.log(`${i + 1}. ${question.options[i]}`);
 }
@@ -51,32 +52,25 @@ console.log(`You got ${correctAnswers} out of ${questions.length} questions corr
 
 const startQuizButton = document.querySelector('#start-quiz-button');
 startQuizButton.addEventListener('click', function() {
-  // questions and options array
-  const questions = [
-    {
-      "question": "What is the capital of France?",
-      "options": ["Paris", "London", "Berlin", "Rome"],
-      "answer": "Paris"
-    },
-    // more questions...
-  ];
+  const textContainer = document.querySelector('#text-container');
+  textContainer.style.display = 'block';
   
-  // get the container for the questions and options
-  const container = document.querySelector('#text-container');
-  container.style.display = 'block';
-  
-  // loop through each question and add it to the container
+  let html = '';
   for (const question of questions) {
-    const questionDiv = document.createElement('div');
-    questionDiv.innerHTML = `<p>${question.question}</p>`;
-    
-    // loop through each option and add it to the questionDiv
+    html += `<p>${question.question}</p>`;
+    html += '<ul>';
     for (const option of question.options) {
-      const optionBtn = document.createElement('button');
-      optionBtn.innerHTML = option;
-      questionDiv.appendChild(optionBtn);
+      html += `<li>${option}</li>`;
     }
-    
-    container.appendChild(questionDiv);
+    html += '</ul>';
   }
+  textContainer.innerHTML = html;
 });
+
+function unhide() {
+    var hid = document.getElementsByClassName("exp");
+    // Emulates jQuery $(element).is(':hidden');
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    }
+}

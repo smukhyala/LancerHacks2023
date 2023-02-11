@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <style>
         body {font-family: 'Courier New', Courier, monospace;}
+        .exp{visibility: hidden;}
     </style>
 </head>
 
@@ -51,13 +52,25 @@
     </div>
       
     <div id="Practice" class="tabcontent">
-        <p>Select your answer below and press submit to enter.</p> 
-        <button id="start-quiz-button">Start Quiz</button>
-        <div id ="text-container" style="display:none;">
-            <p> a </p>
-            <button> b </button>
+        <script src = "mainLogic.js"></script>
+        <h1><font><b>Multiple Choice Mania</b></font></h1>
+        <p><font size = "+2">Test your knowledge by taking our quiz.</font></p>
+        <br>
+        <button id="start-quiz-button" onclick="unhide()">Start Quiz</button>
+        <div class="exp">
+            <p>-</p>
+            <div id="wrapper" style="position:relative; top:200px"></div>
+                <script>
+                // Storing HTML code block in a variable
+                var codeBlock = '<div class="content">' +
+                                    '<p id = "displayedQuestionH"></p>' +
+                                    '<p><strong>Note:</strong> If you don\'t escape "quotes" properly, it will not work.</p>' +
+                                '</div>';
+                
+                // Inserting the code block to wrapper element
+                document.getElementById("wrapper").innerHTML = codeBlock
+                </script>
         </div>
-        <!-- <script src="mainLogic.js"></script> -->
     </div>
 
     <script src="LabelLogic.js"></script>
@@ -67,7 +80,5 @@
         </style>
         <p>2023 Sanjay Mukhyala and Eric Liu</p>
     </div>
-
 </body>
-
 </html>
