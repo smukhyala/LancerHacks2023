@@ -18,13 +18,13 @@ const questions = [
 ];
 
 // Function to display the questions and options
-function askQuestion(question) {
-var displayedQuestion = "question.question";
-document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
+var Poo = "question.question";
+document.getElementById('displayedQuestionH').innerHTML = Poo;
 for (let i = 0; i < question.options.length; i++) {
     console.log(`${i + 1}. ${question.options[i]}`);
 }
-}
+
+
 
 // Check if the answer is correct
 function checkAnswer(question, answer) {

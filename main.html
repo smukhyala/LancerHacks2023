@@ -59,20 +59,17 @@
         <button id="start-quiz-button" onclick="unhide()">Start Quiz</button>
         <div class="exp">
             <p>-</p>
-            <div id="wrapper" style="position:relative; top:200px"></div>
+            <div id="wrapper" style="position:relative; top:200px">
+                <div class="content">
+                    <p id="displayedQuestionH"></p>
+                    <p>adfasd.</p>
+                </div>
+            </div>
             <script>
                 (function() {
-                    let questionText = "asd";
+                    let questionText = Poo;
                     var displayedQuestion = questionText;
                     document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
-                    // Storing HTML code block in a variable
-                    var codeBlock = '<div class="content">' +
-                                        '<p id = "displayedQuestionH"></p>' +
-                                        '<p>adfasd.</p>' +
-                                    '</div>';
-            
-                    // Inserting the code block to wrapper element
-                    document.getElementById("wrapper").innerHTML = codeBlock;
                 })();
             </script>
         </div>
