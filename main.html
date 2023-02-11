@@ -25,7 +25,6 @@
             }
         </style>
         <button class="tablinks" onclick="openLabel(event, 'Home')">Home</button>
-        <button class="tablinks" onclick="openLabel(event, 'AboutUs')">About Us</button>
         <button class="tablinks" onclick="openLabel(event, 'Practice')">Practice</button>
     </div>
 
@@ -43,12 +42,7 @@
             <center>Welcome to How To AP World. </center>
             <center>Answer questions to test your knowledge.</center>
             <center>Start by navigating at the top of your screen</center>
-
         </p>
-    </div>
-    
-    <div id="AboutUs" class="tabcontent">
-        <p>a</p>
     </div>
       
     <div id="Practice" class="tabcontent">
@@ -56,22 +50,43 @@
         <h1><font><b>Multiple Choice Mania</b></font></h1>
         <p><font size = "+2">Test your knowledge by taking our quiz.</font></p>
         <br>
-        <button id="start-quiz-button" onclick="unhide()">Start Quiz</button>
+        <button id="start-quiz-button" onclick="unhide()">Begin / End Quiz</button>
         <div class="exp">
-            <p>-</p>
-            <div id="wrapper" style="position:relative; top:200px">
-                <div class="content">
-                    <p id="displayedQuestionH"></p>
-                    <p>adfasd.</p>
+            <div class="quiz-container">
+                <div class="question">
+                  What event marked the end of World War II?
                 </div>
-            </div>
-            <script>
-                (function() {
-                    let questionText = Poo;
-                    var displayedQuestion = questionText;
-                    document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
-                })();
-            </script>
+                <div class="answer-container">
+                  <div class="answer-bubble" id="answer1">The Battle of Stalingrad</div>
+                  <div class="answer-bubble" id="answer2">The D-Day Invasion</div>
+                  <div class="answer-bubble" id="answer3">The Surrender of Japan</div>
+                  <div class="answer-bubble" id="answer4">The Fall of the Berlin Wall</div>
+                </div>
+              </div>
+              
+              <script>
+                const answerBubbles = document.querySelectorAll(".answer-bubble");
+                
+                for (let i = 0; i < answerBubbles.length; i++) {
+                  answerBubbles[i].addEventListener("click", function() {
+                    // Check if the answer is correct
+                    if (this.id === "answer3") {
+                      this.classList.add("correct");
+                      alert("Correct!");
+                    } else {
+                      this.classList.add("incorrect");
+                      alert("Incorrect.");
+                    }
+                    
+                    // Disable the other answer bubbles so they can't be clicked again
+                    for (let j = 0; j < answerBubbles.length; j++) {
+                      if (answerBubbles[j] !== this) {
+                        answerBubbles[j].style.pointerEvents = "none";
+                      }
+                    }
+                  });
+                }
+              </script>
         </div>
     </div>
 
