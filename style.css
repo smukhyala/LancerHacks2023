@@ -157,3 +157,11 @@ to {opacity: 1;}
 .incorrect {
   background-color: rgb(230, 85, 85);
 }
+
+.hidden {
+  display: none;
+}
+
+.toggleAnswer .answer-explanation {
+  display: none;
+}

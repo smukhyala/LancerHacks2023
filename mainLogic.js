@@ -49,11 +49,6 @@ if (checkAnswer(question, question.options[answer - 1])) {
 // Display the final score
 console.log(`You got ${correctAnswers} out of ${questions.length} questions correct.`);
 
-
-
-
-
-
 const startQuizButton = document.querySelector('#start-quiz-button');
 startQuizButton.addEventListener('click', function() {
   const textContainer = document.querySelector('#text-container');
@@ -88,42 +83,14 @@ startQuizButton.addEventListener('click', function() {
   textContainer.innerHTML = html;
 });
 
-
-
-
-
-
-
-
+function toggleAnswer() {
+    var answer = document.getElementById("answer");
+    answer.classList.toggle("hidden");
+}
 
 function unhide() {
-    var hid = document.getElementsByClassName("exp");
-    // Emulates jQuery $(element).is(':hidden');
-    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
-        hid[0].style.visibility = "visible";
+    var hids = document.getElementsByClassName("exp");
+    for (var i = 0; i < hids.length; i++) {
+        hids[i].style.visibility = "visible";
     }
-}
-
-const { Configuration, OpenAIApi } = require("openai");
-
-const configuration = new Configuration({
-  apiKey: process.env.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,
-});
-const openai = new OpenAIApi(configuration);
-
-async function getCompletion() {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: "generate a modern world history question",
-  });
-
-  let answer = (completion.data.choices[0].text);
-  let answerText = answer;
-}
-getCompletion();
-
-function rubGBT() {
-    let answer = (completion.data.choices[0].text);
-    let answerText = answer;
-    let tester = "ok";
 }
