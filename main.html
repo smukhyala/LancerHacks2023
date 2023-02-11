@@ -47,24 +47,32 @@
       
     <div id="Practice" class="tabcontent">
         <script src = "mainLogic.js"></script>
-        <h1><font><b>Multiple Choice Mania</b></font></h1>
-        <p><font size = "+2">Test your knowledge by taking our quiz.</font></p>
+        <h1 style = "position:relative; left:0px; top:50px;"><font><b>Multiple Choice Mania</b></font></h1>
+        <p style = "position:relative; left:0px; top:50px;"><font size = "+2">Test your knowledge by taking our quiz.</font></p>
         <br>
-        <button id="start-quiz-button" onclick="unhide()">Begin / End Quiz</button>
+
+        <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;">Begin / End Quiz</button>
         <div class="exp">
             <div class="quiz-container">
-                <div class="question">
+                <div class="question" style = "position:relative; left:0px; top:50px;">
                   What event marked the end of World War II?
                 </div>
                 <div class="answer-container">
-                  <div class="answer-bubble" id="answer1">The Battle of Stalingrad</div>
-                  <div class="answer-bubble" id="answer2">The D-Day Invasion</div>
-                  <div class="answer-bubble" id="answer3">The Surrender of Japan</div>
-                  <div class="answer-bubble" id="answer4">The Fall of the Berlin Wall</div>
+                  <div class="answer-bubble" id="answer1" style = "position:relative; left:0px; top:50px;">The Battle of Stalingrad</div>
+                  <div class="answer-bubble" id="answer2" style = "position:relative; left:0px; top:50px;">The D-Day Invasion</div>
+                  <div class="answer-bubble" id="answer3" style = "position:relative; left:0px; top:50px;">The Surrender of Japan</div>
+                  <div class="answer-bubble" id="answer4" style = "position:relative; left:0px; top:50px;">The Fall of the Berlin Wall</div>
                 </div>
-                <button id="next-problem-button" onclick="unhide()">Next Question</button>
-                <button id="why-gbt" onclick="runGBT()">Why is this correct?</button>
+                
+                <!-- <button id="next-problem-button" onclick="unhide()">Next Question</button> -->
+
+                <button id="start-answer-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;">Why is this correct?</button>
+                <div class="exp">
+                    <p style = "position:relative; left:0px; top:50px;">What event marked the end of World War II?</p>
+                    </div>
+                </div>
             </div>
+        </div>
               
               <script>
                 const questionsFinal = [
