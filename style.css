@@ -1,0 +1,119 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eae8e6;
+    font-family: sans-serif;
+    color: #591a1a;
+}
+
+.bottomFooter {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 50px;
+background-color: rgba(244, 141, 24, 0.975);
+color: white;
+text-align: center;
+}
+
+.tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #383636;
+}
+
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 17px;
+}
+
+/* Hover content */
+.tab button:hover {
+background-color: rgb(199, 191, 191);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+background-color: rgb(250, 161, 109);
+}
+
+/* Style tab content */
+.tabcontent {
+display: none;
+padding: 6px 12px;
+-webkit-animation: fadeEffect 1s;
+animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+
+.mainBox {
+    width: 100vw;
+    height: 500px;
+    box-sizing: border-box;
+    margin: 10;
+    top: 0px;
+    border: transparent solid;
+    background-color: #f4aa2a;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+@keyframes spin {
+  0%{
+    transform: translateY(100px);
+    -webkit-transform: translateY(100px);
+  }
+  100%{
+    transform: translateY(-850px) rotate(360deg);
+    -webkit-transform: translateY(-850px) rotate(360deg);
+  }
+}
+
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #0e0d0d;
+  font-size: 2em;
+  z-index: 1;
+}
+
+.smallBox {
+  min-width: 200%;
+  min-height: 225%;
+  border-radius: 70%;
+  position: absolute;
+  background-color: #f6f6f6;
+  animation: spin 7s linear 1;
+  animation-fill-mode: forwards;
+  z-index: 0;
+}
