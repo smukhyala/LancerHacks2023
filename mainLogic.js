@@ -1,4 +1,3 @@
-
 const questions = [
 {
     "question": "What is the capital of France?",
@@ -73,4 +72,8 @@ function unhide() {
     if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
         hid[0].style.visibility = "visible";
     }
+}
+
+function runGBT() {
+
 }
