@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML STYLING</title>
+    <!--CSS FILE-->
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .exp {
+            visibility: hidden;
+        }
+        #top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            width: 100%;
+            height: 50px;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top" class="tab">
+        <button class="tablinks" onclick="openLabel(event, 'Home')">Home</button>
+        <button class="tablinks" onclick="openLabel(event, 'Practice')">Practice</button>
+    </div>
+
+    <div id="Home" class="tabcontent">
+        <div class="mainBox" style="position: relative; left: 0px; top: 2px;">
+            <div class="content">
+                <h1><b>How to AP World</b></h1>
+                <p><font size="+2">Learn today!</font></p>
+            </div>
+            <div class="smallBox"></div>
+        </div>
+        <p>
+            <center>Welcome to How To AP World.</center>
+            <center>Answer questions to test your knowledge.</center>
+            <center>Start by navigating at the top of your screen</center>
+        </p>
+    </div>
+
+    <div id="Practice" class="tabcontent">
+        <h1><b>Multiple Choice Mania</b></h1>
+        <p><font size="+2">Test your knowledge by taking our quiz.</font></p>
+        <br>
+        <button id="start-quiz-button" onclick="unhide()">Begin / End Quiz</button>
+        <div class="exp">
+            <div class="quiz-container">
+                <div class="question" id="question"></div>
+                <div class="answer-container">
+                    <div class="answer-bubble" id="answer1"></div>
+                    <div class="answer-bubble" id="answer2"></div>
+                    <div class="answer-bubble" id="answer3"></div>
+                    <div class="answer-bubble" id="answer4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./mainLogic.js"></script>
+    <script>
+        const questions = [
+                {
+                text: "What event marked the end of World War II?",
+                answers: [
+                    { text: "The Battle of Stalingrad", correct: false },
+                    { text: "The D-Day Invasion", correct: false },
+                    { text: "The Surrender of Japan", correct: true },
+                    { text: "The Fall of the Berlin Wall", correct: false }
+                ]
+                },
+                {
+                text: "What was the main reason for the split of the Roman Empire into two parts in the 4th century CE?",
+                answers: [
+                    { text: "Economic instability", correct: false },
+                    { text: "Military pressure from foreign invaders", correct: false },
+                    { text: "Political disagreement among imperial leaders", correct: true },
+                    { text: "Religious differences", correct: false }
+                ]
+                },
+                {
+                text: "Which of the following events marked the beginning of the European Age of Exploration in the 15th century?",
+                answers: [
+                    { text: "The Reformation", correct: false },
+                    { text: "The Scientific Revolutio", correct: false },
+                    { text: "The Crusades", correct: false },
+                    { text: "The voyages of Christopher Columbus", correct: true }
+                ]
+                },
+                {
+                text: "Which of the following best describes the system of feudalism in Europe during the Middle Ages?",
+                answers: [
+                    { text: "A decentralized system of government in which lords held land from the king in exchange for military service and political support", correct: true },
+                    { text: "A system of government based on a written constitution and the rule of law", correct: false },
+                    { text: "A system of government in which religious leaders held political powe", correct: false },
+                    { text: "A centralizing system of government in which a single ruler held all power", correct: false }
+                ]
+                },
+                {
+                text: "Which of the following was a significant factor in the growth of the trans-Saharan trade during the 700-1200 CE period?",
+                answers: [
+                    { text: "The spread of Buddhism", correct: false },
+                    { text: "The decline of the Roman Empire", correct: false },
+                    { text: "The expansion of the Mongol Empire", correct: false },
+                    { text: "The growth of commerce along the Niger and Senegal Rivers", correct: true }
+                ]
+                },
+                {
+                text: "What was the main impact of the rise of the Mongol Empire in the 13th century on the regions it conquered?",
+                answers: [
+                    { text: "A decline in cultural diversity and the spread of Islam", correct: false },
+                    { text: "An increase in economic and cultural exchange between Europe and Asia", correct: false },
+                    { text: "The spread of democracy and individual rights", correct: false },
+                    { text: "A decline in trade and the destruction of cities and infrastructure", correct: true }
+                ]
+                }
+            ];
+            const score = 0;
+  let currentQuestionIndex = 0;
+  
+  function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.querySelector("#question").innerHTML = currentQuestion.text;
+  
+    for (let i = 0; i < currentQuestion.answers.length; i++) {
+      const answer = currentQuestion.answers[i];
+      const answerBubble = document.querySelector("#answer" + (i + 1));
+      answerBubble.innerHTML = answer.text;
+  
+      answerBubble.addEventListener("click", function () {
+        if (answer.correct) {
+          score++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex === questions.length) {
+          // Show final score
+          alert("You scored: " + score + " out of " + questions.length + ".");
+        } else {
+          loadQuestion();
+        }
+      });
+    }
+  }
+  
+  function unhide() {
+    const startButton = document.querySelector("#start-quiz-button");
+    startButton.style.display = "none";
+  
+    const quizContainer = document.querySelector(".quiz-container");
+    quizContainer.style.visibility = "visible";
+  
+    loadQuestion();
+  }
+</script>
+</body>
+</html>
+
+

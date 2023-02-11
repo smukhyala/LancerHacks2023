@@ -117,3 +117,51 @@ to {opacity: 1;}
   animation-fill-mode: forwards;
   z-index: 0;
 }
+
+/* Styling for the quiz */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer-bubble {
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.answer-bubble:hover {
+  background-color: gray;
+}
+
+.correct {
+  background-color: rgb(77, 135, 77);
+}
+
+.incorrect {
+  background-color: rgb(230, 85, 85);
+}
+
+.hidden {
+  display: none;
+}
+
+.toggleAnswer .answer-explanation {
+  display: none;
+}

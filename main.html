@@ -47,24 +47,91 @@
       
     <div id="Practice" class="tabcontent">
         <script src = "mainLogic.js"></script>
-        <h1><font><b>Multiple Choice Mania</b></font></h1>
-        <p><font size = "+2">Test your knowledge by taking our quiz.</font></p>
+        <h1 style = "position:relative; left:0px; top:50px;"><font><b>Multiple Choice Mania</b></font></h1>
+        <p style = "position:relative; left:0px; top:50px;"><font size = "+2">Test your knowledge by taking our quiz.</font></p>
         <br>
-        <button id="start-quiz-button" onclick="unhide()">Begin / End Quiz</button>
+
+        <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;">Begin / End Quiz</button>
         <div class="exp">
             <div class="quiz-container">
-                <div class="question">
+                <div class="question" style = "position:relative; left:0px; top:50px;">
                   What event marked the end of World War II?
                 </div>
                 <div class="answer-container">
-                  <div class="answer-bubble" id="answer1">The Battle of Stalingrad</div>
-                  <div class="answer-bubble" id="answer2">The D-Day Invasion</div>
-                  <div class="answer-bubble" id="answer3">The Surrender of Japan</div>
-                  <div class="answer-bubble" id="answer4">The Fall of the Berlin Wall</div>
+                  <div class="answer-bubble" id="answer1" style = "position:relative; left:0px; top:50px;">The Battle of Stalingrad</div>
+                  <div class="answer-bubble" id="answer2" style = "position:relative; left:0px; top:50px;">The D-Day Invasion</div>
+                  <div class="answer-bubble" id="answer3" style = "position:relative; left:0px; top:50px;">The Surrender of Japan</div>
+                  <div class="answer-bubble" id="answer4" style = "position:relative; left:0px; top:50px;">The Fall of the Berlin Wall</div>
                 </div>
-              </div>
+                
+                <button id="next-problem-button" onclick="unhide()">Next Question</button>
+
+                <button id="start-answer-button" onclick="toggleAnswer()" style = "position:relative; left:0px; top:50px;">Why is this correct?</button>
+                <div class = "exp" style = "visibility" id="answer">  
+                    <p style = "position:relative; left:0px; top:50px;">What event marked the end of World War II?</p>
+                </div>
+                </div>
+            </div>
+        </div>
               
               <script>
+                const questionsFinal = [
+               {
+               text: "What event marked the end of World War II?",
+               answers: [
+                   { text: "The Battle of Stalingrad", correct: false },
+                   { text: "The D-Day Invasion", correct: false },
+                   { text: "The Surrender of Japan", correct: true },
+                   { text: "The Fall of the Berlin Wall", correct: false }
+               ]
+               },
+               {
+               text: "What was the main reason for the split of the Roman Empire into two parts in the 4th century CE?",
+               answers: [
+                   { text: "Economic instability", correct: false },
+                   { text: "Military pressure from foreign invaders", correct: false },
+                   { text: "Political disagreement among imperial leaders", correct: true },
+                   { text: "Religious differences", correct: false }
+               ]
+               },
+               {
+               text: "Which of the following events marked the beginning of the European Age of Exploration in the 15th century?",
+               answers: [
+                   { text: "The Reformation", correct: false },
+                   { text: "The Scientific Revolutio", correct: false },
+                   { text: "The Crusades", correct: false },
+                   { text: "The voyages of Christopher Columbus", correct: true }
+               ]
+               },
+               {
+               text: "Which of the following best describes the system of feudalism in Europe during the Middle Ages?",
+               answers: [
+                   { text: "A decentralized system of government in which lords held land from the king in exchange for military service and political support", correct: true },
+                   { text: "A system of government based on a written constitution and the rule of law", correct: false },
+                   { text: "A system of government in which religious leaders held political powe", correct: false },
+                   { text: "A centralizing system of government in which a single ruler held all power", correct: false }
+               ]
+               },
+               {
+               text: "Which of the following was a significant factor in the growth of the trans-Saharan trade during the 700-1200 CE period?",
+               answers: [
+                   { text: "The spread of Buddhism", correct: false },
+                   { text: "The decline of the Roman Empire", correct: false },
+                   { text: "The expansion of the Mongol Empire", correct: false },
+                   { text: "The growth of commerce along the Niger and Senegal Rivers", correct: true }
+               ]
+               },
+               {
+               text: "What was the main impact of the rise of the Mongol Empire in the 13th century on the regions it conquered?",
+               answers: [
+                   { text: "A decline in cultural diversity and the spread of Islam", correct: false },
+                   { text: "An increase in economic and cultural exchange between Europe and Asia", correct: false },
+                   { text: "The spread of democracy and individual rights", correct: false },
+                   { text: "A decline in trade and the destruction of cities and infrastructure", correct: true }
+               ]
+               }
+               ];
+
                 const answerBubbles = document.querySelectorAll(".answer-bubble");
                 
                 for (let i = 0; i < answerBubbles.length; i++) {
@@ -72,13 +139,11 @@
                     // Check if the answer is correct
                     if (this.id === "answer3") {
                       this.classList.add("correct");
-                      alert("Correct!");
                     } else {
                       this.classList.add("incorrect");
-                      alert("Incorrect.");
                     }
                     
-                    // Disable the other answer bubbles so they can't be clicked again
+                    // Disable the other answer bubbles
                     for (let j = 0; j < answerBubbles.length; j++) {
                       if (answerBubbles[j] !== this) {
                         answerBubbles[j].style.pointerEvents = "none";
@@ -86,6 +151,23 @@
                     }
                   });
                 }
+
+
+
+                let currentQuestionIndex = 0;
+                const questionContainer = document.querySelector(".question");
+                const answerContainers = document.querySelectorAll(".answer-bubble");
+
+                
+
+                function displayQuestion(question) {
+                    questionContainer.textContent = question.text;
+                    for (let i = 0; i < 4; i++) {
+                        answerContainers[i].textContent = question.answers[i].text;
+                    }
+                }
+
+                displayQuestion(questionsFinal[currentQuestionIndex]);
               </script>
         </div>
     </div>

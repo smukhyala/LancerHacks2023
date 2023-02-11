@@ -1,4 +1,3 @@
-
 const questions = [
 {
     "question": "What is the capital of France?",
@@ -67,10 +66,31 @@ startQuizButton.addEventListener('click', function() {
   textContainer.innerHTML = html;
 });
 
+const startAnswerButton = document.querySelector('#start-answer-button');
+startQuizButton.addEventListener('click', function() {
+  const textContainer = document.querySelector('#text-container');
+  textContainer.style.display = 'block';
+  
+  let html = '';
+  for (const question of questions) {
+    html += `<p>${question.question}</p>`;
+    html += '<ul>';
+    for (const option of question.options) {
+      html += `<li>${option}</li>`;
+    }
+    html += '</ul>';
+  }
+  textContainer.innerHTML = html;
+});
+
+function toggleAnswer() {
+    var answer = document.getElementById("answer");
+    answer.classList.toggle("hidden");
+}
+
 function unhide() {
-    var hid = document.getElementsByClassName("exp");
-    // Emulates jQuery $(element).is(':hidden');
-    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
-        hid[0].style.visibility = "visible";
+    var hids = document.getElementsByClassName("exp");
+    for (var i = 0; i < hids.length; i++) {
+        hids[i].style.visibility = "visible";
     }
 }
