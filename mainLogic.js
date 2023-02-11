@@ -19,7 +19,7 @@ const questions = [
 
 // Function to display the questions and options
 function askQuestion(question) {
-var displayedQuestion = question.question;
+var displayedQuestion = "question.question";
 document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
 for (let i = 0; i < question.options.length; i++) {
     console.log(`${i + 1}. ${question.options[i]}`);

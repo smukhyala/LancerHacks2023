@@ -60,16 +60,21 @@
         <div class="exp">
             <p>-</p>
             <div id="wrapper" style="position:relative; top:200px"></div>
-                <script>
-                // Storing HTML code block in a variable
-                var codeBlock = '<div class="content">' +
-                                    '<p id = "displayedQuestionH"></p>' +
-                                    '<p><strong>Note:</strong> If you don\'t escape "quotes" properly, it will not work.</p>' +
-                                '</div>';
-                
-                // Inserting the code block to wrapper element
-                document.getElementById("wrapper").innerHTML = codeBlock
-                </script>
+            <script>
+                (function() {
+                    let questionText = "asd";
+                    var displayedQuestion = questionText;
+                    document.getElementById('displayedQuestionH').innerHTML = displayedQuestion;
+                    // Storing HTML code block in a variable
+                    var codeBlock = '<div class="content">' +
+                                        '<p id = "displayedQuestionH"></p>' +
+                                        '<p>adfasd.</p>' +
+                                    '</div>';
+            
+                    // Inserting the code block to wrapper element
+                    document.getElementById("wrapper").innerHTML = codeBlock;
+                })();
+            </script>
         </div>
     </div>
 
