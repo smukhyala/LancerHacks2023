@@ -18,7 +18,7 @@ async function generateText(prompt) {
     return json.choices[0].text;
   }
   
-  // Insert the generated text into the Google Docs document
+  // Adding the generated text into the Google Docs document
   async function insertTextIntoDocs(prompt) {
     const text = await generateText(prompt);
     document.execCommand('insertText', false, text);
