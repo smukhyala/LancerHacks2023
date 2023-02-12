@@ -95,6 +95,17 @@ to {opacity: 1;}
   }
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .content {
   position: absolute;
@@ -103,6 +114,7 @@ to {opacity: 1;}
   transform: translate(-50%, -50%);
   text-align: center;
   color: #0e0d0d;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 2em;
   z-index: 1;
 }
@@ -112,8 +124,8 @@ to {opacity: 1;}
   min-height: 225%;
   border-radius: 70%;
   position: absolute;
-  background-color: #f6f6f6;
-  animation: spin 7s linear 1;
+  background: linear-gradient(to right, #4f4a4a 0%, #56518f 51%, #3c6eed 100%);
+  animation: gradient 3s linear infnity;
   animation-fill-mode: forwards;
   z-index: 0;
 }

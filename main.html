@@ -27,6 +27,32 @@
         <button class="tablinks" onclick="openLabel(event, 'Home')">Home</button>
         <button class="tablinks" onclick="openLabel(event, 'Practice')">Practice</button>
     </div>
+    <script>
+        function openLabel(evt, label) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(label).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    
+        // Display the "Home" div on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            openLabel(event, 'Home');
+        });
+    </script>
+    
+    
+    
+    
+    
+    
 
     <div id="Home" class="tabcontent">
         <div class="mainBox" style = "position:relative; left:0px; top:2px;">
