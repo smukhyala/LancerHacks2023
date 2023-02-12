@@ -84,7 +84,7 @@ displayQuestion(questionsFinal[currentQuestionIndex]);
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-apiKey: "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",
+apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -136,13 +136,13 @@ function next() {
         console.error('getQuestion() is not returning the expected data');
         return;
     }
+    
     var tq = questionData.question;
     var qone = questionData.choiceA;
     var qtwo = questionData.choiceB;
     var qthr = questionData.choiceC;
     var qfou = questionData.choiceD;
     var tans = questionData.explanation;
-    console.log(tq);
     document.getElementById("questionText").innerHTML = tq;
     document.getElementById("answer1").innerHTML = qone;
     document.getElementById("answer2").innerHTML = qtwo;
