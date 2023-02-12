@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <head>
     <title>HTML STYLING</title>
-    <!--CSS FILE-->
     <link rel="stylesheet" href="./style.css">
     <style>
         body {font-family: 'Courier New', Courier, monospace;}
@@ -12,60 +12,33 @@
 </head>
 
 <body>
-
     <div id="top" class="tab" style="position:fixed;background:white;width:100%;height:50px;">
-        <style>
-            #top {
-                position: top;
-                top: 0;
-                left: 0;
-                z-index: 999;
-                width: 100%;
-                height: 23px;
-            }
-        </style>
+        <style> #top {position: top; top: 0; left: 0; z-index: 999; width: 100%; height: 23px;} </style>
         <button class="tablinks" onclick="openLabel(event, 'Home')">Home</button>
         <button class="tablinks" onclick="openLabel(event, 'Practice')">Practice</button>
     </div>
-    <script>
-        function openLabel(evt, label) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(label).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    
-        // Display the "Home" div on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            openLabel(event, 'Home');
-        });
-    </script>
-  
+
+    <script src = "mainLogic.js"></script>
+
     <div id="Home" class="tabcontent">
         <div class="mainBox" style = "position:relative; left:0px; top:2px;">
             <div class="content">
                 <h1><font><b>How to AP</b></font></h1>
                 <p><font size = "+2">Learn today with AI!</font></p>
-              </div>
-          <div class="smallBox">
-          </div>
+            </div>
+
+        <div class="smallBox"></div>
 
         </div>
         <p>
-            <center>Welcome to How To AP. </center>
-            <center>Answer MCQ questions to test your knowledge.</center>
-            <center>Start by navigating at the top of your screen!</center>
+        <center>Welcome to How To AP. </center>
+        <center>Answer MCQ questions to test your knowledge.</center>
+        <center>Start by navigating at the top of your screen!</center>
         </p>
     </div>
       
     <div id="Practice" class="tabcontent">
+        
         <script src = "mainLogic.js"></script>
         <h1 style = "position:relative; left:0px; top:35px;" id = "a"><font><b>Multiple Choice Mania</b></font></h1>
         <p style = "position:relative; left:0px; top:35px;" id = "aa"><font size = "+2">Test your knowledge by taking our quiz.</font></p>
@@ -77,13 +50,7 @@
                 <div class="question" id = "questionText" style="visibility: block; position:relative; left:0px; top:15px;"><p style="font-size:30px">
                     What event marked the end of World War II?
                 </p></div>  
-                <script>
-                    document.getElementById("start-quiz-button").addEventListener("click", function() {
-                    this.style.display = "none";
-                    a.style.display = "none";
-                    aa.style.display = "none";
-                    });
-                </script>                
+                <script src = "mainLogic.js"></script>                
                 <div class="answer-container">
                   <div class="answer-bubble" id="answer1" style = "position:relative; left:0px; top:15px;">The Battle of Stalingrad</div>
                   <div class="answer-bubble" id="answer2" style = "position:relative; left:0px; top:15px;">The D-Day Invasion</div>
@@ -100,41 +67,8 @@
                 </div>
             </div>
         </div>
-              <script>
-                const answerBubbles = document.querySelectorAll(".answer-bubble");
 
-                for (let i = 0; i < answerBubbles.length; i++) {
-                answerBubbles[i].addEventListener("click", function() {
-                // Check if the answer is correct
-                if (this.id === "answer3") {
-                this.classList.add("correctABC");
-                } else {
-                this.classList.add("incorrectABC");
-                }
-
-                // Disable the other answer bubbles
-                for (let j = 0; j < answerBubbles.length; j++) {
-                if (answerBubbles[j] !== this) {
-                answerBubbles[j].style.pointerEvents = "none";
-                }
-                }
-                });
-                }
-
-                let currentQuestionIndex = 0;
-                const questionContainer = document.querySelector(".question");
-                const answerContainers = document.querySelectorAll(".answer-bubble");
-
-                function displayQuestion(question) {
-                    questionContainer.textContent = question.text;
-                    for (let i = 0; i < 4; i++) {
-                        answerContainers[i].textContent = question.answers[i].text;
-                    }
-                }
-
-                displayQuestion(questionsFinal[currentQuestionIndex]);
-              </script>
-
+    <script src = "mainLogic.js"></script>
     <script src="LabelLogic.js"></script>
 
     <div class="bottomFooter">
@@ -142,5 +76,6 @@
         </style>
         <p>2023 Sanjay Mukhyala and Eric Liu | Disclamer: Users should be aware of the inherent unrelaiabilties of AI models when using this tool. This project is not affiliated with the College Board. </p>
     </div>
+
 </body>
 </html>
