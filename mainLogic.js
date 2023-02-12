@@ -33,19 +33,19 @@ startQuizButton.addEventListener('click', function() {
 });
 
 function toggleAnswer() {
-    const answerDiv = document.getElementById("answer");
-    if (answerDiv.style.display === "none") {
-      answerDiv.style.display = "block";
-    } else {
-      answerDiv.style.display = "none";
-    }
+  if (answer.style.visibility === "hidden") {
+    answer.style.visibility = "visible";
+  } else {
+    answer.style.visibility = "hidden";
   }
+}
 
 function unhide() {
     var hids = document.getElementsByClassName("exp");
     for (var i = 0; i < hids.length; i++) {
         hids[i].style.visibility = "visible";
     }
+    answer.style.visibility = "hidden";
 }
 
 const answerBubbles = document.querySelectorAll(".answer-bubble");
@@ -82,7 +82,7 @@ function displayQuestion(question) {
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "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";
   const MODEL = "text-davinci-003";
   const PROMPT = "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
   const MAX_TOKENS = 500;
@@ -143,6 +143,7 @@ async function getQuestion() {
 
 
 async function next() {
+  answer.style.visibility = "hidden";
     const questionData = await getQuestion();
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
