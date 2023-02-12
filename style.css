@@ -165,3 +165,15 @@ to {opacity: 1;}
 .toggleAnswer .answer-explanation {
   display: none;
 }
+
+.buttonNEW {
+  background-color: #226060; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}

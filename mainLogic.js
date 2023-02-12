@@ -98,3 +98,7 @@ function unhide() {
         hids[i].style.visibility = "visible";
     }
 }
+
+function runGBT() {
+    
+}
