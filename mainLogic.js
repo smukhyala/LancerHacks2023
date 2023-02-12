@@ -85,6 +85,12 @@ var qfou = "Madrid";
 var tans = "Paris";
 
 function next() {
+    var tq = "What is the capital of France?";
+    var qone = "Paris";
+    var qtwo = "London";
+    var qthr = "Berlin";
+    var qfou = "Madrid";
+    var tans = "Paris";
     document.getElementById("questionText").innerHTML = tq;
     document.getElementById("answer1").innerHTML = qone;
     document.getElementById("answer2").innerHTML = qtwo;
