@@ -1,28 +1,4 @@
 
-for (let i = 0; i < question.options.length; i++) {
-    console.log(`${i + 1}. ${question.options[i]}`);
-}
-
-// Check if the answer is correct
-function checkAnswer(question, answer) {
-return answer === question.answer;
-}
-
-// Shuffle function from Array.prototype.sort()
-questions.sort(() => Math.random() - 0.5);
-
-// Loop through each questions and ask for answers
-let correctAnswers = 0;
-for (const question of questions) {
-askQuestion(question);
-const answer = parseInt(prompt("Enter the number of the correct answer: "), 10);
-if (checkAnswer(question, question.options[answer - 1])) {
-    console.log("Correct!");
-    correctAnswers++;
-} else {
-    console.log(`Incorrect. The correct answer is ${question.answer}`);
-}
-}
 
 // Display the final score
 console.log(`You got ${correctAnswers} out of ${questions.length} questions correct.`);
