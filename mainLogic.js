@@ -86,9 +86,11 @@ const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
 apiKey: "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",
 });
-const openai = new OpenAIApi(configuration);
 
 async function getQuestion() {
+  const openai = new OpenAIApi(configuration);
+
+
 const completion = await openai.createCompletion({
 model: "text-davinci-003",
 prompt: "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line",
@@ -130,8 +132,9 @@ explanation,
 
 logQuestion();
 
-function next() {
-    const questionData = getQuestion();
+async function next() {
+    const questionData = await getQuestion();
+    console.log(questionData)
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
         return;
