@@ -69,6 +69,7 @@ to {opacity: 1;}
 .mainBox {
     width: 100vw;
     height: 500px;
+    top: 1000px;
     box-sizing: border-box;
     margin: 10;
     top: 0px;
