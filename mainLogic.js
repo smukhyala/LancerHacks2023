@@ -81,54 +81,64 @@ function displayQuestion(question) {
 
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
-$.ajax({
-  url: "https://api.openai.com/v1/engines/text-davinci-003/completions",
-  type: "POST",
-  headers: {
-    "Authorization": "Bearer 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"
-  },
-  contentType: "application/json",
-  data: JSON.stringify({
-    prompt: "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line",
-    max_tokens: 500,
-    n: 1,
-    stop: "",
-    temperature: 0.5
-  }),
-  success: function(response) {
-    const text = response.choices[0].text;
-    const textArray = text.split("\n");
-    const question = textArray[2];
-    const choiceA = textArray[4];
-    const choiceB = textArray[5];
-    const choiceC = textArray[6];
-    const choiceD = textArray[7];
-    let correctAnswer = null;
-    let explanation = null;
-  
-    for (let i = 8; i < textArray.length; i++) {
-      if (textArray[i].includes("Answer")) {
-        correctAnswer = textArray[i];
-      }
-      else if (textArray[i].includes("Correct")) {
-        correctAnswer = textArray[i];
-      }
-      if (textArray[i].includes("Explanation")) {
-        explanation = textArray[i];
-      }
+async function getQuestion() {
+  const API_KEY = "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";
+  const MODEL = "text-davinci-003";
+  const PROMPT = "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
+  const MAX_TOKENS = 500;
+
+  const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({
+      prompt: PROMPT,
+      max_tokens: MAX_TOKENS,
+      n: 1,
+      stop: '',
+      temperature: 0.5
+    })
+  });
+
+  const completion = await response.json();
+  const text = completion.choices[0].text;
+  const textArray = text.split("\n");
+  const question = textArray[2];
+  const choiceA = textArray[4];
+  const choiceB = textArray[5];
+  const choiceC = textArray[6];
+  const choiceD = textArray[7];
+  let correctAnswer = null;
+  let explanation = null;
+
+  for (let i = 8; i < textArray.length; i++) {
+    if (textArray[i].includes("Answer")) {
+      correctAnswer = textArray[i];
     }
-  
-    return {
-      question,
-      choiceA,
-      choiceB,
-      choiceC,
-      choiceD,
-      correctAnswer,
-      explanation,
-    };
+    else if (textArray[i].includes("Correct")) {
+      correctAnswer = textArray[i];
+    }
+    if (textArray[i].includes("Explanation")) {
+      explanation = textArray[i];
+    }
   }
-});
+
+  return {
+    question,
+    choiceA,
+    choiceB,
+    choiceC,
+    choiceD,
+    correctAnswer,
+    explanation,
+  };
+}
+
+
+
+
 
 
 
