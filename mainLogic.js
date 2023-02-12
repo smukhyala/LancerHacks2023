@@ -82,7 +82,7 @@ function displayQuestion(question) {
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "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";
   const MODEL = "text-davinci-003";
   const PROMPT = "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
   const MAX_TOKENS = 500;
@@ -138,17 +138,23 @@ async function getQuestion() {
 
 
 
+function showLoading() {
+  document.querySelector('.loading').style.display = 'flex';
+}
 
-
+function hideLoading() {
+  document.querySelector('.loading').style.display = 'none';
+}
 
 
 async function next() {
-  answer.style.visibility = "hidden";
+    showLoading();
     const questionData = await getQuestion();
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
         return;
     }
+    hideLoading();
     
     var tq = questionData.question;
     var qone = questionData.choiceA;
