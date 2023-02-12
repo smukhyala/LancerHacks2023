@@ -81,60 +81,59 @@ function displayQuestion(question) {
 
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
-const { Configuration, OpenAIApi } = require("openai");
-
-const configuration = new Configuration({
-apiKey: "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",
+$.ajax({
+  url: "https://api.openai.com/v1/engines/text-davinci-003/completions",
+  type: "POST",
+  headers: {
+    "Authorization": "Bearer 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"
+  },
+  contentType: "application/json",
+  data: JSON.stringify({
+    prompt: "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line",
+    max_tokens: 500,
+    n: 1,
+    stop: "",
+    temperature: 0.5
+  }),
+  success: function(response) {
+    const text = response.choices[0].text;
+    const textArray = text.split("\n");
+    const question = textArray[2];
+    const choiceA = textArray[4];
+    const choiceB = textArray[5];
+    const choiceC = textArray[6];
+    const choiceD = textArray[7];
+    let correctAnswer = null;
+    let explanation = null;
+  
+    for (let i = 8; i < textArray.length; i++) {
+      if (textArray[i].includes("Answer")) {
+        correctAnswer = textArray[i];
+      }
+      else if (textArray[i].includes("Correct")) {
+        correctAnswer = textArray[i];
+      }
+      if (textArray[i].includes("Explanation")) {
+        explanation = textArray[i];
+      }
+    }
+  
+    return {
+      question,
+      choiceA,
+      choiceB,
+      choiceC,
+      choiceD,
+      correctAnswer,
+      explanation,
+    };
+  }
 });
 
-async function getQuestion() {
-  const openai = new OpenAIApi(configuration);
 
-
-const completion = await openai.createCompletion({
-model: "text-davinci-003",
-prompt: "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line",
-max_tokens: 500,
-});
-
-const text = completion.data.choices[0].text;
-const textArray = text.split("\n");
-const question = textArray[2];
-const choiceA = textArray[4];
-const choiceB = textArray[5];
-const choiceC = textArray[6];
-const choiceD = textArray[7];
-let correctAnswer = null;
-let explanation = null;
-
-for (let i = 8; i < textArray.length; i++) {
-  if (textArray[i].includes("Answer")) {
-    correctAnswer = textArray[i];
-  }
-  else if (textArray[i].includes("Correct")) {
-    correctAnswer = textArray[i];
-  }
-  if (textArray[i].includes("Explanation")) {
-    explanation = textArray[i];
-  }
-}
-
-return {
-question,
-choiceA,
-choiceB,
-choiceC,
-choiceD,
-correctAnswer,
-explanation,
-};
-}
-
-logQuestion();
 
 async function next() {
     const questionData = await getQuestion();
-    console.log(questionData)
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
         return;
