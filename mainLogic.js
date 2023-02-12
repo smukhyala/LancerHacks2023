@@ -82,7 +82,6 @@ function displayQuestion(question) {
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
 async function getQuestion() {
-  let subject = "AP Calculus BC";
   const API_KEY = "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";
   const MODEL = "text-davinci-003";
   const PROMPT = "generate an " +  subject + "MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
@@ -137,8 +136,18 @@ async function getQuestion() {
   };
 }
 
+
+
+function showLoading() {
+  document.querySelector('.loading').style.display = 'flex';
+}
+
+function hideLoading() {
+  document.querySelector('.loading').style.display = 'none';
+}
+
+
 async function next() {
-  answer.style.visibility = "hidden";
     const questionData = await getQuestion();
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
