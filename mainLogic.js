@@ -1,8 +1,3 @@
-
-
-// Display the final score
-console.log(`You got ${correctAnswers} out of ${questions.length} questions correct.`);
-
 const startQuizButton = document.querySelector('#start-quiz-button');
 startQuizButton.addEventListener('click', function() {
   const textContainer = document.querySelector('#text-container');
@@ -52,6 +47,39 @@ function unhide() {
         hids[i].style.visibility = "visible";
     }
 }
+
+const answerBubbles = document.querySelectorAll(".answer-bubble");
+                
+for (let i = 0; i < answerBubbles.length; i++) {
+    answerBubbles[i].addEventListener("click", function() {
+    // Check if the answer is correct
+    if (this.id === "answer3") {
+        this.classList.add("correct");
+    } else {
+        this.classList.add("incorrect");
+    }
+    
+    // Disable the other answer bubbles
+    for (let j = 0; j < answerBubbles.length; j++) {
+        if (answerBubbles[j] !== this) {
+        answerBubbles[j].style.pointerEvents = "none";
+        }
+    }
+    });
+}
+
+let currentQuestionIndex = 0;
+const questionContainer = document.querySelector(".question");
+const answerContainers = document.querySelectorAll(".answer-bubble");
+
+function displayQuestion(question) {
+    questionContainer.textContent = question.text;
+    for (let i = 0; i < 4; i++) {
+        answerContainers[i].textContent = question.answers[i].text;
+    }
+}
+
+displayQuestion(questionsFinal[currentQuestionIndex]);
 
 var tq = "What is the capital of France?";
 var qone = "Paris";
