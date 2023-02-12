@@ -67,8 +67,8 @@
       
     <div id="Practice" class="tabcontent">
         <script src = "mainLogic.js"></script>
-        <h1 style = "position:relative; left:0px; top:35px;"><font><b>Multiple Choice Mania</b></font></h1>
-        <p style = "position:relative; left:0px; top:35px;"><font size = "+2">Test your knowledge by taking our quiz.</font></p>
+        <h1 style = "position:relative; left:0px; top:35px;" id = "a"><font><b>Multiple Choice Mania</b></font></h1>
+        <p style = "position:relative; left:0px; top:35px;" id = "aa"><font size = "+2">Test your knowledge by taking our quiz.</font></p>
         <br>
 
         <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW">Start</button>
@@ -80,6 +80,8 @@
                 <script>
                     document.getElementById("start-quiz-button").addEventListener("click", function() {
                     this.style.display = "none";
+                    a.style.display = "none";
+                    aa.style.display = "none";
                     });
                 </script>                
                 <div class="answer-container">
