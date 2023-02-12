@@ -3,8 +3,6 @@ for (let i = 0; i < question.options.length; i++) {
     console.log(`${i + 1}. ${question.options[i]}`);
 }
 
-
-
 // Check if the answer is correct
 function checkAnswer(question, answer) {
 return answer === question.answer;
@@ -78,6 +76,28 @@ function unhide() {
         hids[i].style.visibility = "visible";
     }
 }
+
+var tq = "What is the capital of France?";
+var qone = "Paris";
+var qtwo = "London";
+var qthr = "Berlin";
+var qfou = "Madrid";
+var tans = "Paris";
+
+function next() {
+    document.getElementById("questionText").innerHTML = tq;
+    document.getElementById("answer1").innerHTML = qone;
+    document.getElementById("answer2").innerHTML = qtwo;
+    document.getElementById("answer3").innerHTML = qthr;
+    document.getElementById("answer4").innerHTML = qfou;
+    document.getElementById("answerText").innerHTML = tans;
+}
+
+
+
+
+
+
 
 
 const { Configuration, OpenAIApi } = require("openai");

@@ -80,7 +80,7 @@
         <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW">New Question</button>
         <div class="exp">
             <div class="quiz-container">
-                <div class="question" style="visibility: block; position:relative; left:0px; top:50px;">
+                <div class="question" id = "questionText" style="visibility: block; position:relative; left:0px; top:50px;">
                     What event marked the end of World War II?
                 </div>                  
                 <div class="answer-container">
@@ -90,18 +90,18 @@
                   <div class="answer-bubble" id="answer4" style = "position:relative; left:0px; top:35px;">The Fall of the Berlin Wall</div>
                 </div>
                 
-                <button id="next-problem-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW"> Next Question </button>
+                <button id="next-problem-button" onclick="next()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW"> Next Question </button>
                 <script>
 
                 </script>
                 <button id="start-answer-button" onclick="toggleAnswer()" style = "position:relative; left:0px; top:60px;" class = "buttonNEW">Why is this correct?</button>
                 <div class = "exp" style = "visibility:hidden;" id="answer">  
-                <p style = "position:relative; left:0px; top:50px;">What event marked the end of World War II?</p>
+                <p style = "position:relative; left:0px; top:50px;" id = "answerText">What event marked the end of World War II?</p>
                 </div>
                 </div>
             </div>
         </div>
-              
+
               <script>
                 const questionsFinal = [
                {
