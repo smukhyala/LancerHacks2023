@@ -136,12 +136,6 @@ async function getQuestion() {
   };
 }
 
-
-
-
-
-
-
 async function next() {
     const questionData = await getQuestion();
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
