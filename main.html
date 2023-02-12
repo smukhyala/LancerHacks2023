@@ -74,9 +74,14 @@
         <button id="start-quiz-button" onclick="unhide()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW">Start</button>
         <div class="exp">
             <div class="quiz-container">
-                <div class="question" id = "questionText" style="visibility: block; position:relative; left:0px; top:15px;">
+                <div class="question" id = "questionText" style="visibility: block; position:relative; left:0px; top:15px;"><p style="font-size:30px">
                     What event marked the end of World War II?
-                </div>                  
+                </p></div>  
+                <script>
+                    document.getElementById("start-quiz-button").addEventListener("click", function() {
+                    this.style.display = "none";
+                    });
+                </script>                
                 <div class="answer-container">
                   <div class="answer-bubble" id="answer1" style = "position:relative; left:0px; top:15px;">The Battle of Stalingrad</div>
                   <div class="answer-bubble" id="answer2" style = "position:relative; left:0px; top:15px;">The D-Day Invasion</div>
