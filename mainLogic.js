@@ -82,7 +82,7 @@ function displayQuestion(question) {
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "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";
   const MODEL = "text-davinci-003";
   const PROMPT = "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
   const MAX_TOKENS = 500;
