@@ -84,7 +84,7 @@ displayQuestion(questionsFinal[currentQuestionIndex]);
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-apiKey: "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",
+apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
