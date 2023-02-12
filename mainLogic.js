@@ -1,34 +1,3 @@
-
-for (let i = 0; i < question.options.length; i++) {
-    console.log(`${i + 1}. ${question.options[i]}`);
-}
-
-
-
-// Check if the answer is correct
-function checkAnswer(question, answer) {
-return answer === question.answer;
-}
-
-// Shuffle function from Array.prototype.sort()
-questions.sort(() => Math.random() - 0.5);
-
-// Loop through each questions and ask for answers
-let correctAnswers = 0;
-for (const question of questions) {
-askQuestion(question);
-const answer = parseInt(prompt("Enter the number of the correct answer: "), 10);
-if (checkAnswer(question, question.options[answer - 1])) {
-    console.log("Correct!");
-    correctAnswers++;
-} else {
-    console.log(`Incorrect. The correct answer is ${question.answer}`);
-}
-}
-
-// Display the final score
-console.log(`You got ${correctAnswers} out of ${questions.length} questions correct.`);
-
 const startQuizButton = document.querySelector('#start-quiz-button');
 startQuizButton.addEventListener('click', function() {
   const textContainer = document.querySelector('#text-container');
@@ -78,6 +47,67 @@ function unhide() {
         hids[i].style.visibility = "visible";
     }
 }
+
+const answerBubbles = document.querySelectorAll(".answer-bubble");
+                
+for (let i = 0; i < answerBubbles.length; i++) {
+    answerBubbles[i].addEventListener("click", function() {
+    // Check if the answer is correct
+    if (this.id === "answer3") {
+        this.classList.add("correct");
+    } else {
+        this.classList.add("incorrect");
+    }
+    
+    // Disable the other answer bubbles
+    for (let j = 0; j < answerBubbles.length; j++) {
+        if (answerBubbles[j] !== this) {
+        answerBubbles[j].style.pointerEvents = "none";
+        }
+    }
+    });
+}
+
+let currentQuestionIndex = 0;
+const questionContainer = document.querySelector(".question");
+const answerContainers = document.querySelectorAll(".answer-bubble");
+
+function displayQuestion(question) {
+    questionContainer.textContent = question.text;
+    for (let i = 0; i < 4; i++) {
+        answerContainers[i].textContent = question.answers[i].text;
+    }
+}
+
+displayQuestion(questionsFinal[currentQuestionIndex]);
+
+var tq = "What is the capital of France?";
+var qone = "Paris";
+var qtwo = "London";
+var qthr = "Berlin";
+var qfou = "Madrid";
+var tans = "Paris";
+
+function next() {
+    var tq = "What is the capital of France?";
+    var qone = "Paris";
+    var qtwo = "London";
+    var qthr = "Berlin";
+    var qfou = "Madrid";
+    var tans = "Paris";
+    document.getElementById("questionText").innerHTML = tq;
+    document.getElementById("answer1").innerHTML = qone;
+    document.getElementById("answer2").innerHTML = qtwo;
+    document.getElementById("answer3").innerHTML = qthr;
+    document.getElementById("answer4").innerHTML = qfou;
+    document.getElementById("answerText").innerHTML = tans;
+}
+
+
+
+
+
+
 
 
 const { Configuration, OpenAIApi } = require("openai");

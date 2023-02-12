@@ -162,11 +162,11 @@ to {opacity: 1;}
   background-color: gray;
 }
 
-.correct {
+.correctABC {
   background-color: rgb(77, 135, 77);
 }
 
-.incorrect {
+.incorrectABC {
   background-color: rgb(230, 85, 85);
 }
 
