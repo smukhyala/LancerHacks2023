@@ -81,35 +81,6 @@ function displayQuestion(question) {
 
 displayQuestion(questionsFinal[currentQuestionIndex]);
 
-var tq = "What is the capital of France?";
-var qone = "Paris";
-var qtwo = "London";
-var qthr = "Berlin";
-var qfou = "Madrid";
-var tans = "Paris";
-
-function next() {
-    var tq = "What is the capital of France?";
-    var qone = "Paris";
-    var qtwo = "London";
-    var qthr = "Berlin";
-    var qfou = "Madrid";
-    var tans = "Paris";
-    document.getElementById("questionText").innerHTML = tq;
-    document.getElementById("answer1").innerHTML = qone;
-    document.getElementById("answer2").innerHTML = qtwo;
-    document.getElementById("answer3").innerHTML = qthr;
-    document.getElementById("answer4").innerHTML = qfou;
-    document.getElementById("answerText").innerHTML = tans;
-}
-
-
-
-
-
-
-
-
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
@@ -131,8 +102,20 @@ const choiceA = textArray[4];
 const choiceB = textArray[5];
 const choiceC = textArray[6];
 const choiceD = textArray[7];
-const correctAnswer = textArray[9];
-const explanation = textArray[10];
+let correctAnswer = null;
+let explanation = null;
+
+for (let i = 8; i < textArray.length; i++) {
+  if (textArray[i].includes("Answer")) {
+    correctAnswer = textArray[i];
+  }
+  else if (textArray[i].includes("Correct")) {
+    correctAnswer = textArray[i];
+  }
+  if (textArray[i].includes("Explanation")) {
+    explanation = textArray[i];
+  }
+}
 
 return {
 question,
@@ -145,15 +128,25 @@ explanation,
 };
 }
 
-async function logQuestion() {
-const questionData = await getQuestion();
-console.log( questionData.question);
-console.log(questionData.choiceA);
-console.log( questionData.choiceB);
-console.log( questionData.choiceC);
-console.log( questionData.choiceD);
-console.log( questionData.correctAnswer);
-console.log(questionData.explanation);
-}
-
 logQuestion();
+
+function next() {
+    const questionData = getQuestion();
+    if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
+        console.error('getQuestion() is not returning the expected data');
+        return;
+    }
+    var tq = questionData.question;
+    var qone = questionData.choiceA;
+    var qtwo = questionData.choiceB;
+    var qthr = questionData.choiceC;
+    var qfou = questionData.choiceD;
+    var tans = questionData.explanation;
+    console.log(tq);
+    document.getElementById("questionText").innerHTML = tq;
+    document.getElementById("answer1").innerHTML = qone;
+    document.getElementById("answer2").innerHTML = qtwo;
+    document.getElementById("answer3").innerHTML = qthr;
+    document.getElementById("answer4").innerHTML = qfou;
+    document.getElementById("answerText").innerHTML = tans;
+}

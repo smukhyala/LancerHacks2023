@@ -50,12 +50,12 @@ explanation,
 
 async function logQuestion() {
 const questionData = await getQuestion();
-console.log( questionData.question);
+console.log(questionData.question);
 console.log(questionData.choiceA);
-console.log( questionData.choiceB);
-console.log( questionData.choiceC);
-console.log( questionData.choiceD);
-console.log( questionData.correctAnswer);
+console.log(questionData.choiceB);
+console.log(questionData.choiceC);
+console.log(questionData.choiceD);
+console.log(questionData.correctAnswer);
 console.log(questionData.explanation);
 }
 
