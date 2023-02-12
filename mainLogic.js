@@ -1,24 +1,4 @@
-const questions = [
-{
-    "question": "What is the capital of France?",
-    "options": ["Paris", "London", "Berlin", "Rome"],
-    "answer": "Paris"
-},
-{
-    "question": "What is the largest ocean in the world?",
-    "options": ["Atlantic Ocean", "Indian Ocean", "Southern Ocean", "Pacific Ocean"],
-    "answer": "Pacific Ocean"
-},
-{
-    "question": "What is the name of the world's highest mountain?",
-    "options": ["Mount Kilimanjaro", "Mount Everest", "Mount Denali", "Mount Aconcagua"],
-    "answer": "Mount Everest"
-}
-];
 
-// Function to display the questions and options
-var Poo = "question.question";
-document.getElementById('displayedQuestionH').innerHTML = Poo;
 for (let i = 0; i < question.options.length; i++) {
     console.log(`${i + 1}. ${question.options[i]}`);
 }
@@ -99,6 +79,27 @@ function unhide() {
     }
 }
 
-function runGBT() {
-    
+
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+apiKey: "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",
+});
+const openai = new OpenAIApi(configuration);
+
+async function getQuestion() {
+const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "generate an AP modern world history MCQ question and it's answer choices then explain why the correct answer is correct on a different line",
+    max_tokens: 500,
+});
+
+return completion.data.choices[0].text;
 }
+
+async function logQuestion() {
+const question = await getQuestion();
+console.log(question);
+}
+
+logQuestion();
