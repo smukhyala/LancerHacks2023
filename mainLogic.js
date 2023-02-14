@@ -120,9 +120,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // asnycrounous on click function
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "YOUR_API_KEY";
   const MODEL = "text-davinci-003";
-  const PROMPT = "generate an " +  subject + "MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
+  const PROMPT = "generate a  Taylor Series MCQ question and it's answer choices then explain why the correct answer is correct on a different line";
   const MAX_TOKENS = 500;
   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
     method: 'POST',

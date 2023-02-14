@@ -16,4 +16,8 @@ function openLabel(evt, label) {
     document.getElementById(label).style.display = "block";
     evt.currentTarget.className += " active";
 
+    if (label === "Home") {
+      tablinks[0].className += " active";
+    }
+
   }
