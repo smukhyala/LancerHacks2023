@@ -124,7 +124,7 @@ async function getQuestion() {
   const MODEL = "text-davinci-003";
   let topic = "AP Calc BC"
   let subtopic = "Taylor Series"
-  const PROMPT = "Generate an " + topic + " " + subtopic + " question and it's answer choices then explain why the correct answer is correct with detail on a different line";
+  const PROMPT = "Generate an " + topic + "(specifically " + subtopic + ") question and it's answer choices then explain why the correct answer is correct with detail on a different line";
   const MAX_TOKENS = 500;
   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
     method: 'POST',

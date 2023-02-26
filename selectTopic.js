@@ -348,16 +348,39 @@ const examOptions = {
     "studio-art-3-d-design": [
       { value: "quality-breadth-and-concentration", text: "Quality, Breadth, and Concentration" },
     ],
-    "studio-art
-      
-
-
-
-
-
-
-
-]};  
+    "studio-art-drawing": [
+        { value: "quality-breadth-and-concentration", text: "Quality, Breath, and Concentration" },
+    ],
+    "united-states-government-and-politics": [
+        { value: "foundations-of-american-democracy", text: "Foundations of American Democracy" },
+        { value: "interactions-among-branches-of-government", text: "Interactions Among Branches of Government" },
+        { value: "civil-libertirs-and-civil-rights", text: "Civil Liberties and Civil Rights" },
+        { value: "american-political-ideologies-and-beliefs", text: "American Political Ideologies and Beliefs" },
+        { value: "political-participation", text: "Political Participation" },
+    ],
+    "united-states-history": [
+        { value: "1491-1607", text: "1491-1607" },
+        { value: "1607-1754", text: "1607-1754" },
+        { value: "1754-1800", text: "1754-1800" },
+        { value: "1800-1844", text: "1800-1844" },
+        { value: "1844-1865", text: "1844-1865" },
+        { value: "1865-1890", text: "1865-1890" },
+        { value: "1890-1945", text: "1890-1945" },
+        { value: "1945-1980", text: "1945-1980" },
+        { value: "1980-present", text: "1980-Present" },
+    ],
+    "world-history": [
+        { value: "the-global-tapestry", text: "The Global Tapestry" },
+        { value: "networks-of-exchange", text: "Networks of Exchange" },
+        { value: "land-based-empires", text: "Land-Based Empires" },
+        { value: "transoceanic-interconnections", text: "Transoceanic Interconnections" },
+        { value: "revolutions", text: "Revolutions" },
+        { value: "consequences-of-industrialization", text: "Consequences of Industrailization" },
+        { value: "global-conflict", text: "Global Conflict" },
+        { value: "cold-war-and-decolonization", text: "Cold War and Decolonization" },
+        { value: "globalization", text: "Globalization" },
+    ],
+};  
 
 // Get references to the select elements
 const apExamsSelect = document.getElementById('ap-exams');
