@@ -64,14 +64,14 @@ for (let i = 0; i < answerBubbles.length; i++) {
     answerBubbles[i].addEventListener("click", function() {
     // Check if the answer is correct (NEEDS TO BE ADAPTABLE TO EACH QUESTION)
     if (this.id === "answer3") {
-        this.classList.add("correct");
+        this.classList.add("correctABC");
     } else {
-        this.classList.add("incorrect");
+        this.classList.add("incorrectABC");
     }
     // Disable the other answer bubbles
     for (let j = 0; j < answerBubbles.length; j++) {
         if (answerBubbles[j] !== this) {
-        answerBubbles[j].style.pointerEvents = "none";
+            answerBubbles[j].style.pointerEvents = "none";
         }
     }
     });
