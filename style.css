@@ -206,16 +206,20 @@ to {opacity: 1;}
 */
 
 .answer-bubble {
-  border: 2px solid #333;
+  border: 0.5px solid #333;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: fit-content;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
+  background-color: lightgray;
   transition: background-color 0.2s ease-in-out;
 }
 

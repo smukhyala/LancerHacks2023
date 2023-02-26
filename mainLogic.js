@@ -74,6 +74,12 @@ function selectAnswer(selectedBubble) {
   // Check if the answer is correct (NEEDS TO BE ADAPTABLE TO EACH QUESTION)
   if (selectedBubble.id === "answer3") {
     selectedBubble.classList.add("correctABC");
+    // Disable the other answer bubbles
+    for (let j = 0; j < answerBubbles.length; j++) {
+      if (answerBubbles[j] !== selectedBubble) {
+        answerBubbles[j].style.pointerEvents = "none";
+      }
+    }
   } else {
     selectedBubble.classList.add("incorrectABC");
     // Disable the other answer bubbles
@@ -84,9 +90,6 @@ function selectAnswer(selectedBubble) {
     }
   }
 }
-
-
-
 
 // Displaying current question
 let currentQuestionIndex = 0;
@@ -134,7 +137,7 @@ async function getQuestion() {
   const MODEL = "text-davinci-003";
   let topic = "AP Calc BC"
   let subtopic = "Taylor Series"
-  const PROMPT = "Generate an " + topic + "(specifically " + subtopic + ") question and it's answer choices then explain why the correct answer is correct with detail on a different line";
+  const PROMPT = "Generate an " + topic + "(specifically " + subtopic + ") question and it's answer choices then explain why the correct answer is correct with detail (include why the other answers are wrong) on a different line";
   const MAX_TOKENS = 500;
   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
     method: 'POST',
