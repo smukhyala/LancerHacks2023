@@ -59,23 +59,33 @@ function unhide() {
 
 
 // answer bubble display
-const answerBubbles = document.querySelectorAll(".answer-bubble");
-for (let i = 0; i < answerBubbles.length; i++) {
-    answerBubbles[i].addEventListener("click", function() {
-    // Check if the answer is correct (NEEDS TO BE ADAPTABLE TO EACH QUESTION)
-    if (this.id === "answer3") {
-        this.classList.add("correctABC");
-    } else {
-        this.classList.add("incorrectABC");
-    }
+function selectAnswer(selectedBubble) {
+  const answerBubbles = document.querySelectorAll('.answer-bubble');
+
+  for (let i = 0; i < answerBubbles.length; i++) {
+    answerBubbles[i].classList.remove('selected');
+    answerBubbles[i].classList.remove('correctABC');
+    answerBubbles[i].classList.remove('incorrectABC');
+    answerBubbles[i].style.pointerEvents = "auto";
+  }
+
+  selectedBubble.classList.add('selected');
+  
+  // Check if the answer is correct (NEEDS TO BE ADAPTABLE TO EACH QUESTION)
+  if (selectedBubble.id === "answer3") {
+    selectedBubble.classList.add("correctABC");
+  } else {
+    selectedBubble.classList.add("incorrectABC");
     // Disable the other answer bubbles
     for (let j = 0; j < answerBubbles.length; j++) {
-        if (answerBubbles[j] !== this) {
-            answerBubbles[j].style.pointerEvents = "none";
-        }
+      if (answerBubbles[j] !== selectedBubble) {
+        answerBubbles[j].style.pointerEvents = "none";
+      }
     }
-    });
+  }
 }
+
+
 
 
 // Displaying current question
