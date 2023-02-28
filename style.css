@@ -45,6 +45,7 @@ cursor: pointer;
 padding: 14px 16px;
 transition: 0.3s;
 font-size: 17px;
+font-family: 'Courier New', Courier, monospace;
 }
 
 /* Hover content */
@@ -302,4 +303,33 @@ option:checked {
 .buttonNEW:hover {
   background-color:#5b75cc;
   transition: 0.7s;
+}
+
+/* CSS code for the loading bar */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.bar {
+  display: inline-block;
+  width: 10px;
+  height: 30px;
+  margin-right: 5px;
+  background-color: #333;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1, 2.5);
+  }
+  40% {
+    transform: scale(1);
+  }
 }

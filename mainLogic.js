@@ -207,6 +207,7 @@ function hideLoading() {
 
 // starting async on next function
 async function next() {
+    showLoading();
     const questionData = await getQuestion();
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
@@ -231,4 +232,5 @@ async function next() {
     document.getElementById("answer3").innerHTML = qthr;
     document.getElementById("answer4").innerHTML = qfou;
     document.getElementById("answerText").innerHTML = tans;
+    hideLoading();
 }

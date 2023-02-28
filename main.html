@@ -4,7 +4,6 @@
 
 <!-- 
     ToDo:
-    - Add a loading bar
     - Decrease time between request and response
     - FIGURE OUT WHY RESPONSE IS INCONSISTENT
 -->
@@ -67,7 +66,12 @@
                 </div>
                 <br>
                 <br>
-                <br>
+                <div class="loading" style="display: none">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
                 <button id="next-problem-button" onclick="next()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW"> Next Question </button>
                 <button id="start-answer-button" onclick="toggleAnswer()" style = "position:relative; left:0px; top:60px;" class = "buttonNEW">Explanation</button>
                 <div class = "exp" style = "visibility:hidden;" id="answer">  
@@ -75,7 +79,7 @@
                 </div>
                 </div>
             </div>
-        </div>
+    </div>
 
     <div id="Topics" class = "tabcontent">
         <script src = "mainLogic.js"></script>
