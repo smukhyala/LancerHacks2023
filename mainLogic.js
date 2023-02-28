@@ -130,13 +130,23 @@ document.addEventListener("DOMContentLoaded", function() {
   openLabel(event, 'Home');
 });
 
+function changeTopicSub() {
+  const examSelect = document.getElementById("ap-exams");
+  const subtopicSelect = document.getElementById("subtopics");
+  const examValue = examSelect.value;
+  const subtopicValue = subtopicSelect.value;
+  topic = examValue;
+  subtopic = subtopicValue;
+}
 
 // asnycrounous on click function
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "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";
   const MODEL = "text-davinci-003";
-  let topic = "AP Calc BC"
-  let subtopic = "Taylor Series"
+  let examSelect = document.getElementById("ap-exams");
+  let subtopicSelect = document.getElementById("subtopic-select");
+  let topic = examSelect.value;
+  let subtopic = subtopicSelect.value;
   const PROMPT = "Generate an " + topic + "(specifically " + subtopic + ") question and it's answer choices then explain why the correct answer is correct with detail (include why the other answers are wrong) on a different line";
   const MAX_TOKENS = 500;
   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
