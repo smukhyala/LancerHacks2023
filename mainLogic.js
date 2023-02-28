@@ -141,12 +141,12 @@ function changeTopicSub() {
 
 // asnycrounous on click function
 async function getQuestion() {
-  const API_KEY = "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";
+  const API_KEY = "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";
   const MODEL = "text-davinci-003";
   let examSelect = document.getElementById("ap-exams");
   let subtopicSelect = document.getElementById("subtopic-select");
-  let topic = examSelect.value;
-  let subtopic = subtopicSelect.value;
+  let topic = "Calc BC"//examSelect.value;
+  let subtopic = "Taylor Series"//subtopicSelect.value;
   const PROMPT = "Generate an " + topic + "(specifically " + subtopic + ") question and it's answer choices then explain why the correct answer is correct with detail (include why the other answers are wrong) on a different line";
   const MAX_TOKENS = 500;
   const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
@@ -211,6 +211,13 @@ async function next() {
     if (!questionData || !questionData.question || !questionData.choiceA || !questionData.choiceB || !questionData.choiceC || !questionData.choiceD || !questionData.explanation) {
         console.error('getQuestion() is not returning the expected data');
         return;
+    }
+    const answerBubbles = document.querySelectorAll('.answer-bubble');
+    for (let i = 0; i < answerBubbles.length; i++) {
+      answerBubbles[i].classList.remove('selected');
+      answerBubbles[i].classList.remove('correctABC');
+      answerBubbles[i].classList.remove('incorrectABC');
+      answerBubbles[i].style.pointerEvents = "auto";
     }
     var tq = questionData.question;
     var qone = questionData.choiceA;

@@ -275,14 +275,9 @@ option:checked {
   color: white;
 }
 
-
-
-
-
-
-
-
-
+.selectLabels {
+  width: 500px;
+}
 
 .hidden {
   display: none;

@@ -2,6 +2,13 @@
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- 
+    ToDo:
+    - Add a loading bar
+    - Decrease time between request and response
+    - FIGURE OUT WHY RESPONSE IS INCONSISTENT
+-->
+
 <head>
     <title>HTML STYLING</title>
     <link rel="stylesheet" href="./style.css">
@@ -58,9 +65,10 @@
                   <div class="answer-bubble" id="answer3" style = "position:relative; left:0px; top:15px;" onclick = "selectAnswer(this)">The Surrender of Japan</div>
                   <div class="answer-bubble" id="answer4" style = "position:relative; left:0px; top:15px;" onclick = "selectAnswer(this)">The Fall of the Berlin Wall</div>
                 </div>
-
+                <br>
+                <br>
+                <br>
                 <button id="next-problem-button" onclick="next()" style = "position:relative; left:0px; top:50px;" class = "buttonNEW"> Next Question </button>
-
                 <button id="start-answer-button" onclick="toggleAnswer()" style = "position:relative; left:0px; top:60px;" class = "buttonNEW">Explanation</button>
                 <div class = "exp" style = "visibility:hidden;" id="answer">  
                 <p style = "position:relative; left:0px; top:50px;" id = "answerText">Explanation: The end of World War II is typically marked by the unconditional surrender of the Empire of Japan, which occurred on September 2, 1945. The surrender took place aboard the USS Missouri, a United States battleship, and was accepted by General Douglas MacArthur, Supreme Commander of the Allied Powers, in the presence of representatives from several countries, including the United States, the United Kingdom, and the Soviet Union. This event marked the end of the world's largest and deadliest conflict and brought an end to the hostilities of World War II.</p>
@@ -72,8 +80,8 @@
     <div id="Topics" class = "tabcontent">
         <script src = "mainLogic.js"></script>
         <h1 style = "position:relative; left:0px; top:20px;"><font><b>Select Your Study</b></font></h1>
-        <label for="ap-exams">Select an AP Exam:</label>
-            <select id="ap-exams" name="ap-exams">
+        <label for="ap-exams" class = "selectLabels">Select an AP Exam:</label>
+            <select id="ap-exams" name="ap-exams" class = "selectLabels">
                 <option value="">-- Select an AP Exam --</option>
                 <option value="art-history">Art History</option>
                 <option value="biology">Biology</option>
@@ -115,8 +123,8 @@
                 <option value="world-history">World History</option>
             </select>
         <br>
-        <label for="topics">Select a topic:</label>
-            <select id="topics" name="topics">
+        <label for="topics" class = "selectLabels">Select a topic:</label>
+            <select id="topics" name="topics" class = "selectLabels">
                 <option value="">-- Please select an AP Exam first --</option>
             </select>
             <br>
