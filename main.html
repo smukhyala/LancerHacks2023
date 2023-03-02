@@ -23,6 +23,7 @@
         <button class="tablinks active" onclick="openLabel(event, 'Home')">Home</button>
         <button class="tablinks" onclick="openLabel(event, 'Practice')">Practice</button>
         <button class="tablinks" onclick="openLabel(event, 'Topics')">Topics</button>
+        <button class="tablinks" onclick="openLabel(event, 'Contact')">Contact</button>
     </div>
 
     <script src = "mainLogic.js"></script>
@@ -137,9 +138,26 @@
         <button type="button" id="confirm-selection-button" onclick="changeTopicSub" class = "buttonNEW">Done!</button>
     </div>
 
+    <div id="Contact" class = "tabcontent">
+        <h1>Contact Us</h1>
+        <p>Fill out the form below to send us your suggestions and feedback:</p>
+        <form action="submit-suggestion.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="10" cols="60" required></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
     <script src = "mainLogic.js"></script>
     <script src="LabelLogic.js"></script>
     <script src="selectTopic.js"></script>
+    <script src="contactForm.js"></script>
 
     <div class="bottomFooter">
         <style type="text/css">
