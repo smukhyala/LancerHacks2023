@@ -1,5 +1,13 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 if(isset($_POST['submit'])){
+    echo "Name: $name<br>";
+    echo "Email: $email<br>";
+    echo "Subject: $subject<br>";
+    echo "Message: $message<br>";
+
     // Form submission
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -7,7 +15,7 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
 
     // Email preference
-    $to = "HowToAP23@gmail.com";
+    $to = "howtoap23@gmail.com";
     $headers = "From: $name <$email>" . "\r\n";
     $headers .= "Reply-To: $email" . "\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";

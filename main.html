@@ -144,13 +144,21 @@
         <p>Fill out the form below to send us your suggestions and feedback:</p>
         <form action="contactForm.php" method="POST">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+            
+            <input type="text" id="name" name="name" placeholder="Name" required><br>
+            
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+            
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            
             <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" required><br>
+            
+            <input type="text" id="subject" name="subject" placeholder="Subject" required><br>
+            
             <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="10" cols="60" required></textarea><br>
+            
+            <textarea id="message" name="message" placeholder="Message" rows="10" cols="60" required></textarea><br>
+            
             <input type="submit" value="Submit">
         </form>
     </div>
