@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
     $message = $_POST['message'];
 
     // Email preference
-    $to = "youremail@example.com";
+    $to = "HowToAP23@gmail.com";
     $headers = "From: $name <$email>" . "\r\n";
     $headers .= "Reply-To: $email" . "\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
